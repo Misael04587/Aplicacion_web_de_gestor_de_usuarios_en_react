@@ -1,0 +1,276 @@
+.app-shell,
+.loading-screen {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+}
+
+.app-shell {
+  display: grid;
+  gap: 20px;
+}
+
+.loading-screen {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+.loading-panel,
+.toolbar,
+.list-shell,
+.user-card,
+.empty-state {
+  background: #ffffff;
+  border: 1px solid #d8e2f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.loading-panel {
+  padding: 32px;
+  text-align: center;
+}
+
+.loading-panel h1 {
+  margin: 0 0 8px;
+}
+
+.loading-copy,
+.app-subtitle,
+.results-copy,
+.empty-copy {
+  color: #64748b;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-subtitle {
+  margin: 8px 0 0;
+}
+
+.results-copy {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.alert-banner {
+  margin: 0;
+  padding: 14px 16px;
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  padding: 20px;
+}
+
+.toolbar-group {
+  display: grid;
+  gap: 12px;
+}
+
+.control-field {
+  display: grid;
+  gap: 8px;
+}
+
+.control-label,
+.panel-label,
+.meta-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.control-input,
+.record-name-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.control-input:focus,
+.record-name-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.action-button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.action-button-primary {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.action-button-primary:hover {
+  background: #1d4ed8;
+}
+
+.action-button-secondary {
+  color: #1e293b;
+  background: #e2e8f0;
+}
+
+.action-button-secondary:hover {
+  background: #cbd5e1;
+}
+
+.action-button-danger {
+  color: #ffffff;
+  background: #dc2626;
+}
+
+.action-button-danger:hover {
+  background: #b91c1c;
+}
+
+.list-shell {
+  padding: 20px;
+}
+
+.usuarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.user-card {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.user-card-header {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+}
+
+.identity-mark {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.user-card-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-card-title {
+  margin: 4px 0 0;
+  font-size: 1.2rem;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.record-name-input {
+  margin-top: 6px;
+}
+
+.city-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ecfeff;
+  color: #0f766e;
+  font-size: 0.8rem;
+}
+
+.field-grid,
+.user-meta {
+  display: grid;
+  gap: 10px;
+}
+
+.meta-row {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.meta-value {
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.user-card-footer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.user-card-footer .action-button {
+  flex: 1 1 140px;
+}
+
+.empty-state {
+  padding: 32px;
+  text-align: center;
+}
+
+.empty-state h3 {
+  margin: 10px 0 6px;
+  color: #0f172a;
+}
+
+@media (max-width: 720px) {
+  .app-header,
+  .toolbar {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .app-header {
+    align-items: start;
+  }
+
+  .toolbar {
+    padding: 16px;
+  }
+
+  .list-shell,
+  .user-card,
+  .loading-panel {
+    padding: 16px;
+  }
+
+  .user-card-header {
+    flex-wrap: wrap;
+  }
+}
