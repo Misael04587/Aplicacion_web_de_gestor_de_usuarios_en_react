@@ -1,4 +1,4 @@
-import Usuario from "./usuarios";
+import Usuario from "./UsuarioCard";
 
 function ListaUsuarios({ usuarios, editarUsuario, eliminarUsuario }) {
   if (!usuarios.length) {
@@ -14,7 +14,7 @@ function ListaUsuarios({ usuarios, editarUsuario, eliminarUsuario }) {
   }
 
   return (
-      <div className="usuarios-grid">
+    <div className="usuarios-grid">
       {usuarios.map((user) => (
         <Usuario
           key={`${user.id}-${user.name}-${user.email}-${user.phone}-${user.address?.city ?? ""}`}
