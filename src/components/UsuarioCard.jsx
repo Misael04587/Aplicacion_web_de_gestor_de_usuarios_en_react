@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Usuario({ user, editarUsuario, eliminarUsuario }) {
+  const navigate = useNavigate();
   const [editando, setEditando] = useState(false);
   const [nuevoNombre, setNuevoNombre] = useState(user.name ?? "");
   const [nuevoEmail, setNuevoEmail] = useState(user.email ?? "");
@@ -29,6 +31,9 @@ function Usuario({ user, editarUsuario, eliminarUsuario }) {
     }
   };
 
+  const verDetalle = () => {
+    navigate(`/usuarios/${user.id}`, { state: { user } });
+  };
 
   return (
     <article className="user-card">
@@ -36,7 +41,7 @@ function Usuario({ user, editarUsuario, eliminarUsuario }) {
         
 
         <div className="user-card-heading">
-          <p className="panel-label">Usuario #{user.id}</p>
+          <p className="panel-label">ID: {user.id}</p>
           {editando ? (
             <input
               className="record-name-input"
@@ -124,6 +129,14 @@ function Usuario({ user, editarUsuario, eliminarUsuario }) {
           </>
         ) : (
           <>
+            <button
+              className="action-button action-button-primary"
+              type="button"
+              onClick={verDetalle}
+            >
+              Ver detalle
+            </button>
+
             <button
               className="action-button action-button-secondary"
               type="button"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Buscador from "../components/Buscador";
 import ListaUsuarios from "../components/ListaUsuarios";
 import {
@@ -8,28 +9,14 @@ import {
   obtenerusuarios,
 } from "../services/api";
 
+import useUsuarios from "../hooks/useUsuarios";
+
 function UsuariosPage() {
-  const [usuarios, setUsuarios] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { usuarios, setUsuarios, loading, error, setError } = useUsuarios();
   const [searchTerm, setSearchTerm] = useState("");
   const [nuevoUsuario, setNuevoUsuario] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const usuariosData = await obtenerusuarios();
-        setUsuarios(usuariosData);
-        setError(null);
-      } catch (fetchError) {
-        setError(fetchError.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const navigate = useNavigate();
 
   const agregarUsuario = async () => {
     const nombre = nuevoUsuario.trim();
@@ -170,6 +157,12 @@ function UsuariosPage() {
             onClick={agregarUsuario}
           >
             Agregar
+          </button>
+
+          <button 
+          className = "action-button "
+          onClick={() => navigate("/")}>
+            Volver a Inicio
           </button>
         </div>
 
